@@ -38,7 +38,7 @@ class UsersRepository implements IUsersRepository {
   }
 
   turnAdmin(receivedUser: User): User {
-    // Complete aqui
+    return Object.assign(receivedUser, { admin: true });
   }
 
   list(): User[] {
@@ -46,4 +46,4 @@ class UsersRepository implements IUsersRepository {
   }
 }
 
-export {UsersRepository};
+export { UsersRepository };
