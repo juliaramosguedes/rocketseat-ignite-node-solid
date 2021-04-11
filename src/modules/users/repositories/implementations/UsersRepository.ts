@@ -1,5 +1,5 @@
-import {User} from "../../model/User";
-import {ICreateUserDTO, IUsersRepository} from "../IUsersRepository";
+import { User } from "../../model/User";
+import { ICreateUserDTO, IUsersRepository } from "../IUsersRepository";
 
 class UsersRepository implements IUsersRepository {
   private users: User[];
@@ -42,7 +42,7 @@ class UsersRepository implements IUsersRepository {
   }
 
   list(): User[] {
-    // Complete aqui
+    return this.users;
   }
 }
 
