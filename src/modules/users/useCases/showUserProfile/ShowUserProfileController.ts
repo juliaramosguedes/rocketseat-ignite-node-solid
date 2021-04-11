@@ -1,14 +1,20 @@
 import { Request, Response } from "express";
 
 import { ShowUserProfileUseCase } from "./ShowUserProfileUseCase";
+import { IRequest } from "../listAllUsers/ListAllUsersUseCase";
 
 class ShowUserProfileController {
   constructor(private showUserProfileUseCase: ShowUserProfileUseCase) {}
 
   handle(request: Request, response: Response): Response {
     const { user_id } = request.params;
-    const user = this.showUserProfileUseCase.execute({ user_id });
-    return response.json(user);
+
+    try {
+      const user = this.showUserProfileUseCase.execute({ user_id });
+      return response.json(user);
+    } catch (e) {
+      return response.status(404).json({ error: e.message });
+    }
   }
 }
 

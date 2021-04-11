@@ -15,7 +15,8 @@ class TurnUserAdminUseCase {
       throw new Error("User not found");
     }
 
-    return this.usersRepository.turnAdmin(user);
+    const updatedUser = this.usersRepository.turnAdmin(user);
+    return updatedUser;
   }
 }
 
